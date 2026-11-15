@@ -27,7 +27,7 @@
    - **Runtime:** `Python 3.12`[cite: 8]
 3. ในส่วน **Permissions**:
    - เลือก **Custom execution role** และค้นหาเลือก **LabRole** (เพื่อให้มีสิทธิ์เข้าถึงบริการอื่นตามโจทย์)[cite: 8]
- <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image1.png" width="600" alt="Lambda Setup">    
+ <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image7.png" width="600" alt="Lambda Setup">    
    - คลิกปุ่มสีส้ม **Save** ที่มุมขวาล่าง[cite: 8]
 <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image1.png" width="600" alt="Lambda Setup">
 
