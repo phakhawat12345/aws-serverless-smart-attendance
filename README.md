@@ -16,7 +16,7 @@
    - **Partition key:** `StudentId` (เลือกประเภทเป็น String)[cite: 7]
    - **Sort key:** None (ไม่ต้องกำหนด)[cite: 7]
 3. ปล่อยค่าอื่นๆ เป็นค่าเริ่มต้น แล้วคลิก **Create table**[cite: 7]
-<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image2.png" width="600" alt="DynamoDB Setup">
+<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image30.png" width="600" alt="DynamoDB Setup">
 
 ---
 
