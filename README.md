@@ -54,21 +54,22 @@
 5.. เลื่อนลงมาด้านล่างแล้วคลิกปุ่ม **Create API**[cite: 11]
 
 5. สร้าง Resource โดยคลิก **Create resource** ตั้งชื่อ Path ว่า `checkin`[cite: 12, 13]
-6. เปิดใช้งานการเชื่อมต่อข้ามโดเมนโดยคลิกที่ทรัพยากร `/checkin` แล้วเลือก **Enable CORS**[cite: 12, 13]
+6. <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image16.png" width="600" alt="API Gateway Setup">
+7. เปิดใช้งานการเชื่อมต่อข้ามโดเมนโดยคลิกที่ทรัพยากร `/checkin` แล้วเลือก **Enable CORS**[cite: 12, 13]
    - ติ๊กถูกที่ช่องสี่เหลี่ยมหน้า **OPTIONS** และ **POST** ใต้หัวข้อ *Access-Control-Allow-Methods*[cite: 13]
-<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image6.png" width="600" alt="Enable CORS">
+<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image4.png" width="600" alt="Enable CORS">
 
-7. คลิกสร้าง Method สำหรับรับข้อมูล:
+8. คลิกสร้าง Method สำหรับรับข้อมูล:
    - เลือก Method type เป็น **POST**[cite: 12]
    - เลือก Integration type เป็น **Lambda Function**[cite: 13]
    - เปิดสวิตช์ **Lambda proxy integration** เป็น **ON**[cite: 13]
    - ช่อง Lambda Function ให้เลือก **CheckInStudent** แล้วกด **Create method**[cite: 13]
 <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image7.png" width="600" alt="POST Method Setup">
 
-8. กดปุ่ม **Deploy API** ด้านบน เลือก Stage เป็น *New stage* และตั้งชื่อว่า `prod` แล้วกด **Deploy**[cite: 13]
+9. กดปุ่ม **Deploy API** ด้านบน เลือก Stage เป็น *New stage* และตั้งชื่อว่า `prod` แล้วกด **Deploy**[cite: 13]
 <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image8.png" width="600" alt="Deploy API">
 
-9. คัดลอกค่า **Invoke URL** ที่ได้ (เช่น `https://xxxxxx.execute-api.us-east-1.amazonaws.com/prod/checkin`) เก็บไว้ใส่ในโค้ดหน้าเว็บ[cite: 14]
+10. คัดลอกค่า **Invoke URL** ที่ได้ (เช่น `https://xxxxxx.execute-api.us-east-1.amazonaws.com/prod/checkin`) เก็บไว้ใส่ในโค้ดหน้าเว็บ[cite: 14]
 <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image9.png" width="600" alt="Invoke URL">
 
 ---
