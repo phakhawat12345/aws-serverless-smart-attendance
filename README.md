@@ -22,17 +22,18 @@
 
 ### Step 2: การสร้าง AWS Lambda Function (Backend)
 1. ไปที่บริการ **AWS Lambda** > คลิก **Create function**[cite: 8]
-2. เลือก **Author from scratch** และตั้งค่า[cite: 8]:
+2. <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image1.png" width="600" alt="Lambda Setup">
+3. เลือก **Author from scratch** และตั้งค่า[cite: 8]:
    - **Function name:** `CheckInStudent`[cite: 8]
    - **Runtime:** `Python 3.12`[cite: 8]
-3. ในส่วน **Permissions**:
+4. ในส่วน **Permissions**:
    - เลือก **Custom execution role** และค้นหาเลือก **LabRole** (เพื่อให้มีสิทธิ์เข้าถึงบริการอื่นตามโจทย์)[cite: 8]
  <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image7.png" width="600" alt="Lambda Setup">    
    - คลิกปุ่มสีส้ม **Save** ที่มุมขวาล่าง[cite: 8]
-<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image1.png" width="600" alt="Lambda Setup">
 
-4. นำโค้ด Python ไปวางทับในช่อง **Code source** ของ Lambda[cite: 8]
-5. กดปุ่ม **Deploy** เพื่อบันทึกโค้ด[cite: 10]
+
+5. นำโค้ด Python ไปวางทับในช่อง **Code source** ของ Lambda[cite: 8]
+6. กดปุ่ม **Deploy** เพื่อบันทึกโค้ด[cite: 10]
 <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image4.png" width="600" alt="Lambda Code Deploy">
 
 ---
