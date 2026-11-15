@@ -28,7 +28,7 @@
 3. ในส่วน **Permissions**:
    - เลือก **Custom execution role** และค้นหาเลือก **LabRole** (เพื่อให้มีสิทธิ์เข้าถึงบริการอื่นตามโจทย์)[cite: 8]
    - คลิกปุ่มสีส้ม **Save** ที่มุมขวาล่าง[cite: 8]
-<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image3.png" width="600" alt="Lambda Setup">
+<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image1.png" width="600" alt="Lambda Setup">
 
 4. นำโค้ด Python ไปวางทับในช่อง **Code source** ของ Lambda[cite: 8]
 5. กดปุ่ม **Deploy** เพื่อบันทึกโค้ด[cite: 10]
