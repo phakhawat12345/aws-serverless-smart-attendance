@@ -31,10 +31,10 @@
  <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image7.png" width="600" alt="Lambda Setup">    
    - คลิกปุ่มสีส้ม **Save** ที่มุมขวาล่าง[cite: 8]
 
-
 5. นำโค้ด Python ไปวางทับในช่อง **Code source** ของ Lambda[cite: 8]
-6. กดปุ่ม **Deploy** เพื่อบันทึกโค้ด[cite: 10]
-<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image4.png" width="600" alt="Lambda Code Deploy">
+6. <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image44.png" width="600" alt="Lambda Code Deploy">
+7. กดปุ่ม **Deploy** เพื่อบันทึกโค้ด[cite: 10]
+
 
 ---
 
