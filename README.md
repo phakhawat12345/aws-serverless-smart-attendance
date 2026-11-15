@@ -107,5 +107,5 @@
 <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image15.png" width="600" alt="Website Endpoint">
 
 หน้าตาเว็บแอปพลิเคชันสำหรับเช็กชื่อจะแสดงผลพร้อมใช้งานทันที:
-<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image16.png" width="600" alt="Web Application Preview">
+<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image2.png" width="600" alt="Web Application Preview">
 
