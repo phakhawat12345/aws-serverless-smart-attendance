@@ -42,30 +42,33 @@
 
 ### Step 3: การสร้าง API Endpoint ด้วย Amazon API Gateway
 1. ไปที่บริการ **Amazon API Gateway** > เลือกสร้าง **REST API** (คลิก Build)[cite: 10, 11]
-2. กำหนดค่า API[cite: 11]:
+<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image8.png" width="600" alt="API Gateway Setup">
+3.เลือก rest api <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image9.png" width="600" alt="API Gateway Setup">
+
+4.. กำหนดค่า API[cite: 11]:
    - **Choose the protocol:** เลือก `REST API`[cite: 11]
    - **Create new API:** เลือก `New API`[cite: 11]
    - **API name:** `AttendanceAPI`[cite: 11]
    - **Endpoint Type:** เลือกเป็น `Regional`[cite: 11]
-3. เลื่อนลงมาด้านล่างแล้วคลิกปุ่ม **Create API**[cite: 11]
-<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image5.png" width="600" alt="API Gateway Setup">
+<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image17.png" width="600" alt="API Gateway Setup">
+5.. เลื่อนลงมาด้านล่างแล้วคลิกปุ่ม **Create API**[cite: 11]
 
-4. สร้าง Resource โดยคลิก **Create resource** ตั้งชื่อ Path ว่า `checkin`[cite: 12, 13]
-5. เปิดใช้งานการเชื่อมต่อข้ามโดเมนโดยคลิกที่ทรัพยากร `/checkin` แล้วเลือก **Enable CORS**[cite: 12, 13]
+5. สร้าง Resource โดยคลิก **Create resource** ตั้งชื่อ Path ว่า `checkin`[cite: 12, 13]
+6. เปิดใช้งานการเชื่อมต่อข้ามโดเมนโดยคลิกที่ทรัพยากร `/checkin` แล้วเลือก **Enable CORS**[cite: 12, 13]
    - ติ๊กถูกที่ช่องสี่เหลี่ยมหน้า **OPTIONS** และ **POST** ใต้หัวข้อ *Access-Control-Allow-Methods*[cite: 13]
 <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image6.png" width="600" alt="Enable CORS">
 
-6. คลิกสร้าง Method สำหรับรับข้อมูล:
+7. คลิกสร้าง Method สำหรับรับข้อมูล:
    - เลือก Method type เป็น **POST**[cite: 12]
    - เลือก Integration type เป็น **Lambda Function**[cite: 13]
    - เปิดสวิตช์ **Lambda proxy integration** เป็น **ON**[cite: 13]
    - ช่อง Lambda Function ให้เลือก **CheckInStudent** แล้วกด **Create method**[cite: 13]
 <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image7.png" width="600" alt="POST Method Setup">
 
-7. กดปุ่ม **Deploy API** ด้านบน เลือก Stage เป็น *New stage* และตั้งชื่อว่า `prod` แล้วกด **Deploy**[cite: 13]
+8. กดปุ่ม **Deploy API** ด้านบน เลือก Stage เป็น *New stage* และตั้งชื่อว่า `prod` แล้วกด **Deploy**[cite: 13]
 <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image8.png" width="600" alt="Deploy API">
 
-8. คัดลอกค่า **Invoke URL** ที่ได้ (เช่น `https://xxxxxx.execute-api.us-east-1.amazonaws.com/prod/checkin`) เก็บไว้ใส่ในโค้ดหน้าเว็บ[cite: 14]
+9. คัดลอกค่า **Invoke URL** ที่ได้ (เช่น `https://xxxxxx.execute-api.us-east-1.amazonaws.com/prod/checkin`) เก็บไว้ใส่ในโค้ดหน้าเว็บ[cite: 14]
 <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image9.png" width="600" alt="Invoke URL">
 
 ---
