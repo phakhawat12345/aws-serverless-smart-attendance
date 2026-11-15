@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Serverless Smart Attendance</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: #1e293b;
+            color: #f8fafc;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 153, 0, 0.15);
+            border: 1px solid #334155;
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+        h2 {
+            text-align: center;
+            color: #ff9900; /* สีส้ม AWS */
+            margin-bottom: 5px;
+            font-size: 22px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 13px;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+        .timer-box {
+            background-color: #0f172a;
+            border: 1px solid #ff9900;
+            color: #ffaa33;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #cbd5e1;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            background-color: #0f172a;
+            border: 1px solid #475569;
+            color: #f8fafc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        input:focus {
+            border-color: #ff9900;
+            outline: none;
+            box-shadow: 0 0 5px rgba(255, 153, 0, 0.5);
+        }
+        button {
+            width: 100%;
+            background-color: #ff9900; /* ปุ่มส้ม AWS */
+            color: #0f172a;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #ec8b00;
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+        button:disabled {
+            background-color: #475569;
+            color: #94a3b8;
+            cursor: not-allowed;
+        }
+        #resultMessage {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 14px;
+            display: none;
+        }
+        .success {
+            background-color: #064e3b;
+            color: #34d399;
+            border: 1px solid #059669;
+        }
+        .error {
+            background-color: #7f1d1d;
+            color: #fca5a5;
+            border: 1px solid #dc2626;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Attendance Check-In</h2>
+        <div class="subtitle">AWS Serverless Smart Attendance</div>
+
+        <div id="timerBox" class="timer-box">
+            ⏱️ Loading timer...
+        </div>
+
+        <form id="attendanceForm">
+            <div class="form-group">
+                <label for="courseId">Course ID:</label>
+                <input type="text" id="courseId" placeholder="e.g. CS446" required>
+            </div>
+
+            <div class="form-group">
+                <label for="section">Section:</label>
+                <input type="text" id="section" placeholder="e.g. 427A or 427B" required>
+            </div>
+
+            <div class="form-group">
+                <label for="studentId">Student ID:</label>
+                <input type="text" id="studentId" placeholder="Enter student ID" required>
+            </div>
+
+            <div class="form-group">
+                <label for="studentName">Student Name:</label>
+                <input type="text" id="studentName" placeholder="Enter full name" required>
+            </div>
+
+            <!-- 📌 ช่องกรอกรหัส PIN หน้าห้องที่เพิ่มเข้ามา -->
+            <div class="form-group">
+                <label for="pin">Classroom PIN (4 หลักจากหน้าห้อง):</label>
+                <input type="text" id="pin" placeholder="Enter 4-digit PIN" maxlength="4" required>
+            </div>
+
+            <button type="submit" id="submitBtn">Confirm Check-In</button>
+        </form>
+
+        <div id="resultMessage"></div>
+    </div>
+
+    <script>
+        const scanTimestamp = Date.now();
+        const ALLOWED_DURATION = 15 * 60 * 1000; // 15 minutes
+
+        const timerInterval = setInterval(() => {
+            const now = Date.now();
+            const elapsed = now - scanTimestamp;
+            const remaining = ALLOWED_DURATION - elapsed;
+
+            const timerBox = document.getElementById('timerBox');
+            const submitBtn = document.getElementById('submitBtn');
+
+            if (remaining <= 0) {
+                clearInterval(timerInterval);
+                timerBox.innerText = "❌ QR Code expired (Over 15 mins)";
+                timerBox.style.backgroundColor = "#7f1d1d";
+                timerBox.style.borderColor = "#dc2626";
+                timerBox.style.color = "#fca5a5";
+                submitBtn.disabled = true;
+                submitBtn.innerText = "Check-in Closed";
+            } else {
+                const minutes = Math.floor(remaining / 60000);
+                const seconds = Math.floor((remaining % 60000) / 1000);
+                timerBox.innerText = `⏱️ Time remaining: ${minutes}m ${seconds < 10 ? '0' : ''}${seconds}s`;
+            }
+        }, 1000);
+
+        document.getElementById('attendanceForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const courseId = document.getElementById('courseId').value.trim();
+            const section = document.getElementById('section').value.trim();
+            const studentId = document.getElementById('studentId').value.trim();
+            const studentName = document.getElementById('studentName').value.trim();
+            const pin = document.getElementById('pin').value.trim(); // ดึงค่า PIN ที่กรอก
+            const submitBtn = document.getElementById('submitBtn');
+            const resultDiv = document.getElementById('resultMessage');
+
+            // ⚠️ แทนที่ด้วย API Gateway Invoke URL ของคุณ (อย่าลืมใส่ URL จริงแทนช่องว่าง)
+            const API_URL = "YOUR_API_GATEWAY_INVOKE_URL";  
+
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Processing...";
+            resultDiv.style.display = "none";
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        courseId: courseId,
+                        section: section,
+                        studentId: studentId,
+                        studentName: studentName,
+                        pin: pin, // ส่งรหัส PIN ไปเช็กที่ Backend (Lambda)
+                        clientTimestamp: scanTimestamp
+                    })
+                });
+
+                const data = await response.json();
+
+                resultDiv.style.display = "block";
+                if (response.ok) {
+                    resultDiv.className = "success";
+                    resultDiv.innerText = data.message || "Check-in successful!";
+                    document.getElementById('attendanceForm').reset();
+                } else {
+                    resultDiv.className = "error";
+                    resultDiv.innerText = data.message || "An error occurred";
+                    submitBtn.disabled = false;
+                }
+            } catch (error) {
+                resultDiv.style.display = "block";
+                resultDiv.className = "error";
+                resultDiv.innerText = "Connection failed: " + error.message;
+                submitBtn.disabled = false;
+            } finally {
+                if (!submitBtn.disabled) {
+                    submitBtn.innerText = "Confirm Check-In";
+                }
+            }
+        });
+    </script>
+</body>
+</html>
