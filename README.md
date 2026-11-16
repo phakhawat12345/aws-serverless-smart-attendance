@@ -75,8 +75,9 @@
 
 ### Step 4: การเตรียมไฟล์หน้าเว็บ (Frontend) index.html
 1.สร้างไฟล์ชื่อ index.html ขึ้นมาในคอมพิวเตอร์ของตัวเอง แล้วก๊อปปี้โค้ดสำเร็จรูปชุดนี้ไปใส่ข้างใน   
-2.. สามารถเข้าไปดูโค้ด Python สำหรับ Lambda ได้ที่ลิงก์นี้:
-3.. นำ URL ที่ได้จาก API Gateway ไปใส่ไว้ในตัวแปร `API_URL` ของไฟล์ `index.html`[cite: 14]
+2.. สามารถเข้าไปดูโค้ด index.html ได้ที่ลิงก์นี้:https://github.com/phakhawat12345/aws-serverless-smart-attendance/blob/main/index.html
+
+3..นำ URL ที่ได้จาก API Gateway ไปใส่ไว้ในตัวแปร `API_URL` ของไฟล์ `index.html`[cite: 14]
 <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image18.png" width="600" alt="Frontend Code">
 
 ---
