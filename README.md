@@ -57,7 +57,7 @@
 6. <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image16.png" width="600" alt="API Gateway Setup">
 7. เปิดใช้งานการเชื่อมต่อข้ามโดเมนโดยคลิกที่ทรัพยากร `/checkin` แล้วเลือก **Enable CORS**[cite: 12, 13]
    - ติ๊กถูกที่ช่องสี่เหลี่ยมหน้า **OPTIONS** และ **POST** ใต้หัวข้อ *Access-Control-Allow-Methods*[cite: 13]
-<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image4.png" width="600" alt="Enable CORS">
+<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image5.png" width="600" alt="Enable CORS">
 
 8. คลิกสร้าง Method สำหรับรับข้อมูล:
    - เลือก Method type เป็น **POST**[cite: 12]
