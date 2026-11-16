@@ -78,13 +78,13 @@
 2.. สามารถเข้าไปดูโค้ด index.html ได้ที่ลิงก์นี้:https://github.com/phakhawat12345/aws-serverless-smart-attendance/blob/main/index.html
 
 3..นำ URL ที่ได้จาก API Gateway ไปใส่ไว้ในตัวแปร `API_URL` ของไฟล์ `index.html`[cite: 14]
-<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image18.png" width="600" alt="Frontend Code">
+<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/65.png" width="600" alt="Frontend Code">
 
 ---
 
 ### Step 5: การโฮสต์เว็บขึ้น Amazon S3 และทดสอบระบบ
 1. ไปที่บริการ **Amazon S3** > คลิก **Create bucket**[cite: 14]
-   - ตั้งชื่อ Bucket เช่น `smart-attendance-frontend-[รหัสนักศึกษา]`[cite: 14]
+   - ตั้งชื่อ Bucket name เช่น `smart-attendance-frontend-[รหัสนักศึกษา]`[cite: 14]
    - **ยกเลิกการติ๊ก** ช่อง *Block all public access* ออก เพื่อให้คนอื่นเปิดดูเว็บได้[cite: 14]
    - คลิก **Create bucket**[cite: 14]
 <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image11.png" width="600" alt="Create S3 Bucket">
