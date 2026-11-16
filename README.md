@@ -64,10 +64,10 @@
    - เลือก Integration type เป็น **Lambda Function**[cite: 13]
    - เปิดสวิตช์ **Lambda proxy integration** เป็น **ON**[cite: 13]
    - ช่อง Lambda Function ให้เลือก **CheckInStudent** แล้วกด **Create method**[cite: 13]
-<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image7.png" width="600" alt="POST Method Setup">
+
 
 9. กดปุ่ม **Deploy API** ด้านบน เลือก Stage เป็น *New stage* และตั้งชื่อว่า `prod` แล้วกด **Deploy**[cite: 13]
-<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image8.png" width="600" alt="Deploy API">
+<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image6.png" width="600" alt="Deploy API">
 
 10. คัดลอกค่า **Invoke URL** ที่ได้ (เช่น `https://xxxxxx.execute-api.us-east-1.amazonaws.com/prod/checkin`) เก็บไว้ใส่ในโค้ดหน้าเว็บ[cite: 14]
 <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image9.png" width="600" alt="Invoke URL">
