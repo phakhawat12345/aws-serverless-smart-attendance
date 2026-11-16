@@ -59,7 +59,7 @@
    - ติ๊กถูกที่ช่องสี่เหลี่ยมหน้า **OPTIONS** และ **POST** ใต้หัวข้อ *Access-Control-Allow-Methods*[cite: 13]
 <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image5.png" width="600" alt="Enable CORS">
 
-8. คลิกสร้าง Method สำหรับรับข้อมูล:
+8. แล้วคลิก **Create method** สำหรับรับข้อมูล:
    - เลือก Method type เป็น **POST**[cite: 12]
    - เลือก Integration type เป็น **Lambda Function**[cite: 13]
    - เปิดสวิตช์ **Lambda proxy integration** เป็น **ON**[cite: 13]
