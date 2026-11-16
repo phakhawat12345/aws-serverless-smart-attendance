@@ -85,9 +85,10 @@
 ### Step 5: การโฮสต์เว็บขึ้น Amazon S3 และทดสอบระบบ
 1. ไปที่บริการ **Amazon S3** > คลิก **Create bucket**[cite: 14]
    - ตั้งชื่อ Bucket name เช่น `smart-attendance-frontend-[รหัสนักศึกษา]`[cite: 14]
-   - **ยกเลิกการติ๊ก** ช่อง *Block all public access* ออก เพื่อให้คนอื่นเปิดดูเว็บได้[cite: 14]
+   - **ยกเลิกการติ๊ก** ช่อง *Block all public access* ออกเพื่อให้คนอื่นเปิดดูเว็บได้[cite: 14]
+   - **แต่ติ๊กถูก** ที่ช่อง **I acknowledge that the current settings might result in this bucket and the objects within becoming public** ที่อยู่ด้านล่างสุด เพื่อยืนยันการเปิดใช้งานสาธารณะ
+   - <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/66.png" width="600" alt="Create S3 Bucket">
    - คลิก **Create bucket**[cite: 14]
-<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image11.png" width="600" alt="Create S3 Bucket">
 
 2. ตั้งค่า Static website hosting:
    - เข้าไปที่ Bucket ของคุณ > ไปที่แท็บ **Properties** เลื่อนลงมาล่างสุดที่หัวข้อ *Static website hosting* แล้วคลิก **Edit**[cite: 15]
