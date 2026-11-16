@@ -4,7 +4,6 @@
 
 ## System Architecture
 <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image18.png" width="600" alt="System Architecture Diagram">
-
 ---
 
 ## Setup Guide (คู่มือการติดตั้งระบบ)
@@ -92,23 +91,39 @@
 
 2. ตั้งค่า Static website hosting:
    - เข้าไปที่ Bucket ของคุณ > ไปที่แท็บ **Properties** เลื่อนลงมาล่างสุดที่หัวข้อ *Static website hosting* แล้วคลิก **Edit**[cite: 15]
+   - <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image10.png" width="600" alt="Static Website Hosting">
    - เลือก **Enable**[cite: 15]
    - ช่อง *Index document* พิมพ์ `index.html` แล้วกด **Save changes**[cite: 15]
-<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image12.png" width="600" alt="Static Website Hosting">
+   -  - <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image19.png" width="600" alt="Static Website Hosting">
+
 
 3. อัปโหลดไฟล์หน้าเว็บ:
    - ไปที่แท็บ **Objects** แล้วกด **Upload** นำไฟล์ `index.html` ที่แก้ไข API_URL เรียบร้อยแล้วอัปโหลดขึ้นไป[cite: 15]
-<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image13.png" width="600" alt="Upload index.html">
+<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image14.png" width="600" alt="Upload index.html">
 
 4. ตั้งค่า Bucket Policy ให้เป็นสาธารณะ:
    - ไปที่แท็บ **Permissions** เลื่อนลงมาที่หัวข้อ *Bucket policy* แล้วคลิก **Edit**[cite: 16]
-   - นำโค้ด JSON สิทธิ์การอ่านสาธารณะไปวาง (อย่าลืมเปลี่ยนชื่อ Bucket ให้ตรงของคุณ) แล้วกด **Save changes**[cite: 16]
-<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image14.png" width="600" alt="Bucket Policy">
+   - - นำโค้ด JSON สิทธิ์การอ่านสาธารณะไปวาง (อย่าลืมเปลี่ยน `YOUR-BUCKET-NAME` เป็นชื่อ S3 Bucket ของคุณ):
+    
+-
+  ```json
+  {
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Sid": "PublicReadGetObject",
+              "Effect": "Allow",
+              "Principal": "*",
+              "Action": "s3:GetObject",
+              "Resource": "arn:aws:s3:::YOUR-BUCKET-NAME/*"
+          }
+      ]
+  }
+-
+  แล้วกด **Save changes**[cite: 16]
 
-5. เปิดใช้งานเว็บไซต์:
-   - กลับมาที่แท็บ **Properties** เลื่อนลงมาที่ *Static website hosting* คัดลอกลิงก์ **Bucket website endpoint** ไปเปิดใช้งานในเบราว์เซอร์[cite: 16]
-<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image15.png" width="600" alt="Website Endpoint">
+ 5. เปิดใช้งานเว็บไซต์:
+     กลับมาที่แท็บ **Properties** เลื่อนลงมาที่ *Static website hosting* คัดลอกลิงก์ **Bucket website endpoint** ไปเปิดใช้งานในเบราว์เซอร์[cite: 16]
+ <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image2.png" width="600" alt="Website Endpoint">
 
-หน้าตาเว็บแอปพลิเคชันสำหรับเช็กชื่อจะแสดงผลพร้อมใช้งานทันที: **CLASSROOM PIN 4829 หรือ ตามที่ผู้ใช้งานตั้ง**
-<img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image2.png" width="600" alt="Web Application Preview">
-
+ หน้าตาเว็บแอปพลิเคชันสำหรับเช็กชื่อจะแสดงผลพร้อมใช้งานทันที: **CLASSROOM PIN 4829 หรือ ตามที่ผู้ใช้งานตั้ง**
