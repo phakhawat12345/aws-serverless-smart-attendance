@@ -1,10 +1,19 @@
 # AWS Serverless Smart Attendance
 
 ระบบเช็กชื่อเข้าเรียนอัจฉริยะด้วยสถาปัตยกรรมแบบ Serverless บน AWS
+## 📌 ภาพรวมโปรเจกต์ (What is it?)
+ระบบเช็กชื่อเข้าเรียนอัจฉริยะ (AWS Serverless Smart Attendance) เป็นเว็บแอปพลิเคชันที่ออกแบบมาเพื่ออำนวยความสะดวกในการเช็กชื่อเข้าเรียนของนักศึกษาผ่านระบบคลาวด์แบบ Serverless โดยผู้ใช้งานสามารถกรอกรหัส PIN ประจำคาบเรียนเพื่อบันทึกเวลาเข้าเรียนได้ทันทีผ่านหน้าเว็บ ช่วยลดขั้นตอนการจัดการเซิร์ฟเวอร์และทำงานอัตโนมัติได้อย่างรวดเร็ว
+
+## 🛠️ บริการ AWS ที่ใช้งาน (AWS Services)
+โครงสร้างสถาปัตยกรรมของโปรเจกต์นี้ใช้งานบริการหลักบน AWS ดังนี้:
+1. **Amazon S3:** ใช้โฮสต์ไฟล์หน้าเว็บไซต์ Static Website Hosting (HTML/JS) เพื่อให้ผู้ใช้งานเข้าถึงหน้าเว็บผ่านอินเทอร์เน็ตได้
+2. **Amazon API Gateway:** ใช้สร้าง REST API และจัดการเส้นทาง Routing (Endpoint `/checkin`) พร้อมเปิดใช้งาน CORS สำหรับรับ-ส่งข้อมูลจากหน้าเว็บ
+3. **AWS Lambda (Python):** ทำหน้าที่เป็น Backend ประมวลผลคำขอเช็กชื่อโดยใช้ฟังก์ชัน Python (`CheckInStudent`) โดยไม่ต้องดูแลจัดการ Server เอง
+4. **Amazon DynamoDB:** ใช้เป็นฐานข้อมูล NoSQL แบบรวดเร็ว (`AttendanceLogs`) โดยกำหนดให้ `StudentId` เป็น Partition Key สำหรับจัดเก็บประวัติการเช็กชื่อ
 
 ## System Architecture
 <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image18.png" width="600" alt="System Architecture Diagram">
----
+
 
 ## Setup Guide (คู่มือการติดตั้งระบบ)
 
