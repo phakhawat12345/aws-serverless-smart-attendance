@@ -38,8 +38,11 @@
 3. เลือก **Author from scratch** และตั้งค่า[cite: 8]:
    - **Function name:** `CheckInStudent`[cite: 8]
    - **Runtime:** `Python 3.12`[cite: 8]
+   - วิธีหาและเลือก LabRole ให้ทำตามขั้นตอนนี้ได้เลยครับ:1. เปิดเมนู Additional settings:ให้มองหาหัวข้อคำว่า "Additional settings" แล้วคลิกเพื่อขยายเมนูลงมา
+   - 2.เลือก Use an existing role:ในเมนูที่ขยายลงมา จะมีตัวเลือกให้เลือกประเภทของ Role ให้เลือกติ๊กที่ "Use an existing role" (การใช้ Role ที่มีอยู่แล้ว)
+     3.ค้นหาและเลือก LabRole:จะมีช่องดรอปดาวน์ที่ชื่อว่า "Execution role" ปรากฏขึ้นมาให้คลิกที่ช่องนั้นแล้วพิมพ์ค้นหา หรือเลื่อนหาคำว่า LabRole (ซึ่งเป็น Role สำเร็จรูปของระบบแล็บ AWS) แล้วกดเลือกได้เลยครับ
 4. ในส่วน **Permissions**:
-   - เลือก **Custom execution role** และค้นหาเลือก **LabRole** (เพื่อให้มีสิทธิ์เข้าถึงบริการอื่นตามโจทย์)[cite: 8]
+   - เลือก **Custom execution role** และค้นหาเลือก **LabRole** [cite: 8]
  <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image7.png" width="600" alt="Lambda Setup">    
    - คลิกปุ่มสีส้ม **Save** ที่มุมขวาล่าง[cite: 8]
 
