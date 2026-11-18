@@ -144,3 +144,30 @@
  <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image2.png" width="600" alt="Website Endpoint">
 
  หน้าตาเว็บแอปพลิเคชันสำหรับเช็กชื่อจะแสดงผลพร้อมใช้งานทันที: **CLASSROOM PIN 4829 หรือ ตามที่ผู้ใช้งานตั้ง**
+
+ ##ขั้นตอนการลบทรัพยากรบน AWS ตามลำดับ (แนะนำให้ลบย้อนหลังจากหน้าเว็บไปหลังบ้าน)
+ 
+1.ลบ Amazon S3 Bucket (Frontend)
+ไปที่บริการ Amazon S3
+คลิกเลือก Bucket ของหน้าเว็บคุณ (เช่น smart-attendance-frontend-...)
+สำคัญ: ก่อนลบ Bucket คุณต้องลบไฟล์ (Objects) ข้างในทั้งหมดก่อน โดยคลิกเข้าไป > เลือกไฟล์ทั้งหมด > กด Delete > พิมพ์คำว่า permanently delete เพื่อยืนยันการลบไฟล์
+เมื่อ Bucket ว่างแล้ว ให้กลับมาที่หน้าหลักของ S3 เลือก Bucket นั้นอีกครั้ง แล้วกดปุ่ม Delete bucket > พิมพ์ชื่อ Bucket เพื่อยืนยันการลบ
+
+2.ลบ Amazon API Gateway (Backend API)
+ไปที่บริการ API Gateway
+คลิกเลือก API ของคุณ (เช่น AttendanceAPI)
+มองหาปุ่ม Actions ด้านบน หรือเมนูการตั้งค่า แล้วคลิก Delete API
+พิมพ์ชื่อ API เพื่อยืนยันการลบทิ้ง
+
+3.ลบ AWS Lambda Function
+ไปที่บริการ AWS Lambda > คลิกเลือก Functions
+เลือกฟังก์ชันของคุณ (เช่น CheckInStudent)
+ที่มุมขวาบน ให้คลิกเมนู Actions > เลือก Delete
+พิมพ์ชื่อฟังก์ชันเพื่อยืนยันการลบ
+
+4. ลบตาราง Amazon DynamoDB
+ไปที่บริการ Amazon DynamoDB > เมนูด้านซ้ายเลือก Tables
+เลือกตารางของคุณ (AttendanceLogs)
+คลิกปุ่ม Delete ด้านบน
+ติ๊กยืนยันการลบ CloudWatch alarms (ถ้ามี) แล้วพิมพ์คำว่า delete เพื่อลบตารางฐานข้อมูลทิ้ง
+
