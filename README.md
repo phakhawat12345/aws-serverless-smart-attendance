@@ -142,8 +142,11 @@
  5. เปิดใช้งานเว็บไซต์:
      กลับมาที่แท็บ **Properties** เลื่อนลงมาที่ *Static website hosting* คัดลอกลิงก์ **Bucket website endpoint** ไปเปิดใช้งานในเบราว์เซอร์[cite: 16]
  <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/image2.png" width="600" alt="Website Endpoint">
-
  หน้าตาเว็บแอปพลิเคชันสำหรับเช็กชื่อจะแสดงผลพร้อมใช้งานทันที: **CLASSROOM PIN 4829 หรือ ตามที่ผู้ใช้งานตั้ง**
+ <img src="https://raw.githubusercontent.com/phakhawat12345/aws-serverless-smart-attendance/main/QRcode.png" width="600" alt="Website Endpoint">
+ QR Code สำหรับทดลองสแกนเช็คชื่อ
+
+
 
  ##ขั้นตอนการลบทรัพยากรบน AWS ตามลำดับ (แนะนำให้ลบย้อนหลังจากหน้าเว็บไปหลังบ้าน)
  
